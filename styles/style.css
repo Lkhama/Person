@@ -51,6 +51,10 @@ div.loginbar {
 	font-size: 12px;
 	padding: 5px;
 }
+div.loginbar a {
+	color: white;
+	text-decoration: none;
+}
 div.content {
 	background-color: white;
 	padding: 15px;
