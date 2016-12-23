@@ -4,6 +4,7 @@
 	<head>
 		<title>Persons list</title>
 		<link rel="stylesheet" type="text/css" href="styles/style.css" />
+		<link rel="icon" type="image/png" href="images/favicon.png" />
 	</head>
 <body>
 	<div class="container">
