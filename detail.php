@@ -16,11 +16,11 @@
 		</tr>
 		<tr>
 			<td align="right"><b>Birthday</b></td>
-			<td><?php echo $row["bdate"]; ?></td>
+			<td id="birthday"><?php echo $row["bdate"]; ?></td>
 		</tr>
 		<tr>
 			<td align="right"><b>Age</b></td>
-			<td><?php echo (date('Y')-substr($row['bdate'], 0, 4)); ?></td>
+			<td id="age"></td>
 		</tr>
 		<?php if (isset($_SESSION['name'])) : ?>
 		<tr>
@@ -35,4 +35,11 @@
 	Person not found!
 <?php endif; ?>
 <?php $conn->close(); ?>
+<script>
+	var birthday = document.getElementById('birthday').innerHTML;
+	var birthyear = parseInt(birthday.substr(0, 4));
+	var nowyear = new Date().getFullYear();
+	var age = nowyear - birthyear;
+	document.getElementById('age').innerHTML = age + ' years old';
+</script>
 <?php include 'footer.php'; ?>
