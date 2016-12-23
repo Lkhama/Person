@@ -108,15 +108,9 @@ div.row {
 	border-bottom: 1px solid lightgray;
 	padding: 5px 15px;
 	transition: background-color 0.2s;
-	transition: height, padding 0.5s;
-	overflow: hidden;
 }
 div.row:hover {
 	background-color: #eee;
-}
-div.row.deleting {
-	height: 0;
-	padding: 0 15px;
 }
 div.row.head {
 	background: grey;

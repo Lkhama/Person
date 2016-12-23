@@ -61,18 +61,11 @@
 <script>
 	function remove(id) {
 		if (confirm('Do you really wanna delete this person?')) {
-			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
-				if (this.readyState == 4 && this.status == 200) {
-					var deleting_element = document.getElementById('person' + id);
-					deleting_element.className += ' deleting';
-					setTimeout(function() {
-						deleting_element.remove();
-					}, 500);
-				}
-			};
-			xhttp.open("GET", "delete.php?id=" + id, true);
-			xhttp.send();
+			$.get('delete.php?id=' + id, function() {
+				$('div#person' + id).slideUp(500, function() {
+					$(this).remove();
+				});
+			});
 		}
 	};
 </script>

@@ -5,6 +5,7 @@
 		<title>Persons list</title>
 		<link rel="stylesheet" type="text/css" href="styles/style.css" />
 		<link rel="icon" type="image/png" href="images/favicon.png" />
+		<script src="scripts/jquery.js"></script>
 	</head>
 <body>
 	<div class="container">

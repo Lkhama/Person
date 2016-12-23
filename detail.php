@@ -36,10 +36,6 @@
 <?php endif; ?>
 <?php $conn->close(); ?>
 <script>
-	var birthday = document.getElementById('birthday').innerHTML;
-	var birthyear = parseInt(birthday.substr(0, 4));
-	var nowyear = new Date().getFullYear();
-	var age = nowyear - birthyear;
-	document.getElementById('age').innerHTML = age + ' years old';
+	$('td#age').text(new Date().getFullYear() - parseInt($('td#birthday').text().substr(0, 4)) + ' years old');
 </script>
 <?php include 'footer.php'; ?>
