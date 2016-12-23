@@ -1,12 +1,12 @@
 <?php include 'header.php'; ?>
 <?php
 	if (!isset($_SESSION['name'])) {
-		header("Location: login.php");
+		header('Location: login.php');
 	}
 ?>
 <?php
 	include 'db_connection.php';
-	$sql = "SELECT * FROM person WHERE id=" . $_GET['id'];
+	$sql = 'SELECT * FROM person WHERE id=' . $_GET['id'];
 	$result = $conn->query($sql);
 ?>
 <?php if ($result->num_rows > 0) : ?>

@@ -1,11 +1,11 @@
 <?php include 'header.php'; ?>
 <?php
 	if (isset($_SESSION['name'])) {
-		header("Location: index.php");
+		header('Location: index.php');
 	} else {
 		if (isset($_POST['name'])) {
 			$_SESSION['name'] = $_POST['name'];
-			header("Location: index.php");
+			header('Location: index.php');
 		}
 	}
 ?>

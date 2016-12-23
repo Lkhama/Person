@@ -1,10 +1,10 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html>
-<head>
-<title>Persons list</title>
-<link rel="stylesheet" type="text/css" href="styles/style.css" />
-</head>
+	<head>
+		<title>Persons list</title>
+		<link rel="stylesheet" type="text/css" href="styles/style.css" />
+	</head>
 <body>
 	<div class="container">
 		<div class="header">
