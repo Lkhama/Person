@@ -1,16 +1,6 @@
 <?php include 'header.php'; ?>
-<?php
-	$search='';
-	if (isset($_GET['search'])) {
-		$search=$_GET['search'];
-	} 
-?>
-<div class="top">
-	<span class="title">Persons</span>
-	<form class="search">
-		<input type="text" name="search" value="<?php echo $search; ?>">
-		<input type="submit" value="search"> 
-	</form>
+<div class="page-header">
+	<h3>Person list</h3>
 </div>
 <?php
 	include 'db_connection.php';
@@ -26,37 +16,29 @@
 	$result = $conn->query($sql);
 ?>
 <?php if ($result->num_rows > 0) : ?>
-	<div class="row head">
-		<div class="cell">Name</div>
-		<div class="cell">Actions</div>
-	</div>
 	<?php while($row = $result->fetch_assoc()) : ?>
-		<div class="row person" id="person<?php echo $row['id']; ?>">
-			<div class="cell"><?php echo $row['name']; ?></div>
-			<div class="cell">
-				<a href="detail.php?id=<?php echo $row['id']; ?>">Details</a>
-				<a href="#_" onclick="remove(<?php echo $row['id']; ?>);return false;">Delete</a>
-			</div>
+		<div class="person" id="person<?php echo $row['id']; ?>">
+			<a href="detail.php?id=<?php echo $row['id']; ?>" class="name"><?php echo $row['name']; ?></a>
+			<a href="#_" class="btn btn-danger btn-xs pull-right" onclick="remove(<?php echo $row['id']; ?>);return false;">
+				<span class="glyphicon glyphicon-trash"></span>
+				Delete
+			</a>
 		</div>
 	<?php endwhile; ?>
-	<?php if (isset($_SESSION['name'])) : ?>
-		<div class="row foot">
-			<a href="new.php">Add person</a>
-		</div>
-	<?php endif; ?>
 <?php else : ?>
-	0 results
+	<div class="well">There is no person.</div>
 <?php endif; ?>
 <?php $conn->close(); ?>
-
-<div class="pagination">
-	<?php for ($i = 1; $i <= ceil($number_of_rows/$perpage); $i=$i+1) : ?>
-		<?php if ($i == $page) : ?>
-			<?php echo $i; ?> 
-		<?php else : ?>
-			<a href="index.php?page=<?php echo $i; ?>&search=<?php echo $search; ?>"><?php echo $i; ?></a> 
-		<?php endif; ?>
-	<?php endfor; ?>
+<div class="text-center">
+	<ul class="pagination">
+		<?php for ($i = 1; $i <= ceil($number_of_rows/$perpage); $i=$i+1) : ?>
+			<?php if ($i == $page) : ?>
+				<li class="active"><a href="#"><?php echo $i; ?></a></li>
+			<?php else : ?>
+				<li><a href="index.php?page=<?php echo $i; ?>&search=<?php echo $search; ?>"><?php echo $i; ?></a></li>
+			<?php endif; ?>
+		<?php endfor; ?>
+	</ul>
 </div>
 <script>
 	function remove(id) {
