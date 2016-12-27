@@ -19,10 +19,12 @@
 	<?php while($row = $result->fetch_assoc()) : ?>
 		<div class="person" id="person<?php echo $row['id']; ?>">
 			<a href="detail.php?id=<?php echo $row['id']; ?>" class="name"><?php echo $row['name']; ?></a>
-			<a href="#_" class="btn btn-danger btn-xs pull-right" onclick="remove(<?php echo $row['id']; ?>);return false;">
-				<span class="glyphicon glyphicon-trash"></span>
-				Delete
-			</a>
+			<?php if (isset($_SESSION['name'])) : ?>
+				<a href="#_" class="btn btn-danger btn-xs pull-right" onclick="remove(<?php echo $row['id']; ?>);return false;">
+					<span class="glyphicon glyphicon-trash"></span>
+					Delete
+				</a>
+			<?php endif; ?>
 		</div>
 	<?php endwhile; ?>
 <?php else : ?>
